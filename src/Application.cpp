@@ -14,6 +14,7 @@
 #include "gui/memory.h"
 #include "gui/sounds/SoundHandler.hpp"
 #include <glm/mat4x4.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include <proc_ui/procui.h>
 #include <sysapp/switch.h>
 #include <sysapp/launch.h>

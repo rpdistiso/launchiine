@@ -35,7 +35,7 @@ Install the following dependencies:
 Then build via `make`.
 
 ## Building using the Dockerfile
-Note: As of 02.9.2024, building is not possible unless you would like to fix my link-time errors
+Note: You must build libgui from `src/libgui` in this repository
 
 It's possible to use a docker image for building. This way you don't need anything installed on your host system.
 
@@ -52,4 +52,5 @@ docker run -it --rm -v ${PWD}:/project launchiine-builder make clean
 
 ## Credits
 Maschell: Libgui, AutoBootModule, original project
+
 Dimok: FreeType and related assets
