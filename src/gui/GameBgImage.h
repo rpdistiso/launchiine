@@ -1,6 +1,7 @@
 #ifndef GAME_BG_IMAGE_H
 #define GAME_BG_IMAGE_H
 
+#include <glm/mat4x4.hpp>
 #include "gui/GuiImageAsync.h"
 #include "gui/video/shaders/Shader3D.h"
 
