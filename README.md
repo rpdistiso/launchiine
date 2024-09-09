@@ -11,7 +11,7 @@ A simple Wii U Menu replacement, still in early development and not ready for a 
 ## Known Issues
 - Random crashes
 - The Keyboard input is implemented, but result is ignored
-- nn::spm is initalized but no quick start menu support. It's relying on the [AutobootModule](https://github.com/wiiu-env/AutobootModule)
+- `nn::spm` is initalized but no quick start menu support. It's relying on the [AutobootModule](https://github.com/wiiu-env/AutobootModule)
 - Probably a lot more
 
 ## TODOs
