@@ -22,7 +22,7 @@ A simple Wii U Menu replacement, still in early development and not ready for a 
 - Display applets like the original Wii U Menu 
 - Implement Account selection when no default account is set. 
 - Implement update check/no way to update games
-- Properly implement nn:sl (external storage and quick start menu)
+- Properly implement `nn::sl` (external storage and quick start menu)
 - Fix search
 - Implement all the other stuff the Wii U Menu offers (Account creation, switching between Accounts, set default account etc.)
 - Implement ways to launch the original Wii U Menu.
@@ -37,7 +37,7 @@ Then build via `make`.
 ## Building using the Dockerfile
 Note: You must build libgui from `src/libgui` in this repository
 
-It's possible to use a docker image for building. This way you don't need anything installed on your host system.
+It's possible to use a docker image for building. This way you don't need anything installed on your host system
 
 ```
 # Build docker image (only needed once)
