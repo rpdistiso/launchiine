@@ -1,6 +1,6 @@
 ## Launchiine (WIP)
 
-A simple Wii U Menu replacement, still in early development and not ready for a day to day usage
+A simple Wii U Menu replacement, in an alpha development stage and not ready for day to day usage
 
 ## Usage (Replace Wii U Menu via Mocha Payload):
 ([ENVIRONMENT] is a placeholder for the actual environment name)
