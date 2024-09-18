@@ -16,7 +16,6 @@ A simple Wii U Menu replacement, currently in an alpha development stage and not
 
 ## TODOs
 - Non-touch controls (Must touch gamepad then you will be able to use DPad and analog sticks)
-- Sound on SplashScreen
 - Folder support
 - Preserve app order after closing/opening launchiine.
 - Display applets like the original Wii U Menu 
