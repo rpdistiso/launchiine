@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-#define LAUNCHIINE_VERSION "v0.1"
+#define LAUNCHIINE_VERSION "v0.1.2"
 #define META_PATH          "/meta"
 
 #ifdef __cplusplus
