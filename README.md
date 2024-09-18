@@ -9,7 +9,7 @@ A simple Wii U Menu replacement, currently in an alpha development stage and not
 - Load the Wii U Menu and launchiine should show up instead
 
 ## Known Issues
-- Random crashes
+- Random crashes (Mainly related to GX2)
 - The Keyboard input is implemented, but result is ignored
 - `nn::spm` is initalized but no quick start menu support. It's relying on the [AutobootModule](https://github.com/wiiu-env/AutobootModule)
 - Probably a lot more
