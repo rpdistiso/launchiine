@@ -41,7 +41,7 @@ It's possible to use a docker image for building. This way you don't need anythi
 docker build . -t launchiine-builder
 
 # make 
-docker run -it --rm -v ${PWD}:/project launchiine-builder make
+docker run -it --rm -v ${PWD}:/project launchiine-builder make -j2
 
 # make clean
 docker run -it --rm -v ${PWD}:/project launchiine-builder make clean
