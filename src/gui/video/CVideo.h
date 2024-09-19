@@ -1,23 +1,7 @@
-/****************************************************************************
- * Copyright (C) 2015 Dimok
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- ****************************************************************************/
-#ifndef __CVIDEO_H_
-#define __CVIDEO_H_
+#ifndef __CVIDEO_H
+#define __CVIDEO_H
 
-#include <gui/gx2_ext.h>
+#include "gui/gx2_ext.h"
 #include <gx2/clear.h>
 #include <gx2/context.h>
 #include <gx2/display.h>
@@ -27,8 +11,8 @@
 #include <gx2/sampler.h>
 #include <gx2/state.h>
 #include <gx2/swap.h>
-
-#include <gui/video/shaders/Shader.h>
+#include <glm/mat4x4.hpp>
+#include "gui/video/shaders/Shader.h"
 
 class CVideo {
 public:
