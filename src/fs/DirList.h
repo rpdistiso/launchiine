@@ -18,8 +18,8 @@
  * DirList Class
  * for WiiXplorer 2010
  ***************************************************************************/
-#ifndef ___DIRLIST_H_
-#define ___DIRLIST_H_
+#ifndef ___DIRLIST_H
+#define ___DIRLIST_H
 
 #include <string>
 #include <vector>
