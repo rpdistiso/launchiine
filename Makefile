@@ -95,6 +95,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			-I$(CURDIR)/$(BUILD) -I$(PORTLIBS_PATH)/ppc/include/freetype2
 
 export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib) 
+bin2o = $(bin2s) -a 32 $< | $(AS) -o $(@)
 
 .PHONY: $(BUILD) clean all
 
