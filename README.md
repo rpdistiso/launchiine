@@ -31,11 +31,9 @@ Install the following dependencies:
 - [wut](https://github.com/devkitPro/wut)
 - [libgui](https://github.com/wiiu-env/libgui)
 
-Then build via `make`.
+Then build via `make`
 
 ## Building using the Dockerfile
-Note: You must build libgui from `src/libgui` in this repository
-
 It's possible to use a docker image for building. This way you don't need anything installed on your host system
 
 ```
