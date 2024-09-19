@@ -1,5 +1,5 @@
-#ifndef _MAIN_WINDOW_H_
-#define _MAIN_WINDOW_H_
+#ifndef _MAIN_WINDOW_H
+#define _MAIN_WINDOW_H
 
 #include "KeyboardHelper.h"
 #include "MainDrcButtonsFrame.h"
@@ -155,4 +155,4 @@ private:
     KeyboardHelper *keyboardInstance = nullptr;
 };
 
-#endif //_MAIN_WINDOW_H_
+#endif //_MAIN_WINDOW_H
