@@ -27,12 +27,11 @@ SOURCES		:=	src \
 				src/resources \
 				src/system \
 				src/utils \
-				/project/workspace/src/libgui
 DATA		:=	data \
 				data/images \
 				data/sounds \
 				data/fonts
-INCLUDES	:=	src /project/workspace/src/libgui/include  
+INCLUDES	:=	src  
 
 #-------------------------------------------------------------------------------
 # options for code generation
@@ -47,13 +46,13 @@ CXXFLAGS	:= $(CFLAGS) -std=c++20
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-g $(ARCH) $(RPXSPECS) -Wl,-Map,$(notdir $*.map) 
 
-LIBS	:=  -lgui -lfreetype -lgd -lpng -ljpeg -lz -lmad -lvorbisidec -logg -lbz2 -lwut 
+LIBS	:=  -lfreetype -lgd -lpng -ljpeg -lz -lmad -lvorbisidec -logg -lbz2 -lwut 
 
 #-------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level
 # containing include and lib
 #-------------------------------------------------------------------------------
-LIBDIRS	:= $(PORTLIBS) $(WUT_ROOT) $(WUT_ROOT)/usr /project/workspace/src/libgui
+LIBDIRS	:= $(PORTLIBS) $(WUT_ROOT) $(WUT_ROOT)/usr 
 
 #-------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -98,7 +97,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			$(foreach dir,$(LIBDIRS),-I$(dir)/include) \
 			-I$(CURDIR)/$(BUILD) -I$(PORTLIBS_PATH)/ppc/include/freetype2
 
-export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib) -L/project/workspace/src/libgui/lib -lgui
+export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib) 
 
 .PHONY: $(BUILD) clean all
 
