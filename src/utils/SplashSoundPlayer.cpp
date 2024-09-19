@@ -10,7 +10,6 @@
 #include <sys/stat.h>
 #include <vector>
 #include <whb/log.h>
-#include <fstream>
 
 bool LoadFileIntoBuffer(std::string_view path, std::vector < uint8_t > & buffer) {
   struct stat st {};
