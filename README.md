@@ -11,20 +11,20 @@ A simple Wii U Menu replacement, currently in an alpha development stage and not
 ## Known Issues
 - Random crashes (Mainly related to GX2)
 - The Keyboard input is implemented, but result is ignored
-- `nn::spm` is initalized but no quick start menu support. It's relying on the [AutobootModule](https://github.com/wiiu-env/AutobootModule)
+- `nn::spm` is initalized(see commit [523f64f](https://github.com/rpdistiso/launchiine/commit/523f64fb27ea9d9551ddc057f5cef03c75973339)) but no quick start menu support
 - Probably a lot more
 
 ## TO-DOs
 - Non-touch controls (Must touch gamepad then you will be able to use DPad and analog sticks)
 - Folder support
-- Preserve app order after closing/opening launchiine.
+- Preserve app order after closing/opening Launchiine
 - Display applets like the original Wii U Menu 
-- Implement Account selection when no default account is set. 
+- Implement Account selection when no default account is set
 - Implement update check/no way to update games
 - Properly implement `nn::sl` (external storage and quick start menu)
 - Fix search
 - Implement all the other stuff the Wii U Menu offers (Account creation, switching between Accounts, set default account etc.)
-- Implement ways to launch the original Wii U Menu.
+- Implement ways to launch the original Wii U Menu
 
 ## Building
 Install the following dependencies:
@@ -35,6 +35,8 @@ Then build via `make`
 
 ## Building using the Dockerfile
 It's possible to use a docker image for building. This way you don't need anything installed on your host system
+
+*Note: I highly recommend building via Docker*
 
 ```
 # Build docker image (only needed once)
