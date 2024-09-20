@@ -1,5 +1,5 @@
-#include "Resources.h"
-#include "filelist.h"
+#include "resources/Resources.h"
+#include "resources/filelist.h"
 #include "fs/FSUtils.h"
 #include "utils/AsyncExecutor.h"
 #include "gui/GuiImageData.h"
