@@ -14,7 +14,7 @@ A simple Wii U Menu replacement, currently in an alpha development stage and not
 - `nn::spm` is initalized but no quick start menu support. It's relying on the [AutobootModule](https://github.com/wiiu-env/AutobootModule)
 - Probably a lot more
 
-## TODOs
+## TO-DOs
 - Non-touch controls (Must touch gamepad then you will be able to use DPad and analog sticks)
 - Folder support
 - Preserve app order after closing/opening launchiine.
