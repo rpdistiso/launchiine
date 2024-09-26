@@ -95,7 +95,6 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES),-I$(CURDIR)/$(dir)) \
 			-I$(CURDIR)/$(BUILD) -I$(PORTLIBS_PATH)/ppc/include/freetype2
 
 export LIBPATHS	:=	$(foreach dir,$(LIBDIRS),-L$(dir)/lib) 
-bin2o = $(bin2s) -a 32 $< | $(AS) -o $(@)
 
 .PHONY: $(BUILD) clean all
 
@@ -130,6 +129,8 @@ $(OFILES_SRC)	: $(HFILES_BIN)
 #-------------------------------------------------------------------------------
 # you need a rule like this for each extension you use as binary data
 #-------------------------------------------------------------------------------
+bin2o = $(bin2s) -a 32 $< | $(AS) -o $(@)
+
 %.bin.o	%_bin.h :	%.bin
 	@echo $(notdir $<)
 	@$(bin2o)
