@@ -11,7 +11,7 @@ A simple Wii U Menu replacement, currently in an alpha development stage and not
 ## Known Issues
 - Random crashes (Mainly related to GX2)
 - The Keyboard input is implemented, but result is ignored
-- `nn::spm` is initalized(see commit [523f64f](https://github.com/rpdistiso/launchiine/commit/523f64fb27ea9d9551ddc057f5cef03c75973339)) but no quick start menu support
+- `nn::spm` is initalized(see commit [`523f64f`](https://github.com/rpdistiso/launchiine/commit/523f64fb27ea9d9551ddc057f5cef03c75973339)) but no quick start menu support
 - Probably a lot more
 
 ## TO-DOs
