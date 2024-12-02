@@ -2,6 +2,7 @@
 #include <curl/curl.h>
 #include <jansson.h>
 #include <coreinit/filesystem.h>
+#include <coreinit/core.h>
 #include <whb/log.h>
 
 struct FileWriteData {
