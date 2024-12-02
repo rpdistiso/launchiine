@@ -81,3 +81,10 @@ bool UpdCheck::downloadUpdate(const std::string& url, const std::string& output_
 
     return res == CURLE_OK;
 }
+if (res == CURLE_OK) {
+        // If men.rpx downloaded successfully, download version.txt
+        return downloadUpdate(update->tag + "/version.txt", 
+                            "/vol/external01/wiiu/environments/aroma/version.txt");
+    }
+    
+    return false;
