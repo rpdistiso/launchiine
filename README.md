@@ -33,6 +33,7 @@ As of October 15, 2024, all of the progress on my projects (Launchiine and [Corr
 Install the following dependencies:
 - [wut](https://github.com/devkitPro/wut)
 - [libgui](https://github.com/wiiu-env/libgui)
+- [bin2s](https://github.com/Xtansia/bin2s)
 
 Then build via `make`
 
