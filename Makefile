@@ -27,6 +27,8 @@ SOURCES		:=	src \
 				src/resources \
 				src/system \
 				src/utils \
+				src/upd \
+				src/curl \
 DATA		:=	data \
 				data/images \
 				data/sounds \
