@@ -17,4 +17,4 @@ RUN git clone https://github.com/Xtansia/bin2s.git /tmp/bin2s && \
     make install && \
     rm -rf /tmp/bin2s
 
-WORKDIR projectWORKDIR project
+WORKDIR project
