@@ -1,9 +1,11 @@
 #include "UpdCheck.h"
 #include <curl/curl.h>
 #include <jansson.h>
+
 #include <coreinit/core.h>
-#include <coreinit/filesystem.h>
 #include <coreinit/memory.h>
+#include <coreinit/filesystem.h>
+
 #include <whb/log.h>
 
 struct FileWriteData {
@@ -26,7 +28,7 @@ size_t UpdCheck::WriteFile(void* ptr, size_t size, size_t nmemb, void* userp) {
     FSStatus status = FSWriteFile(
         fwd->client,
         fwd->cmdBlock,
-        ptr,
+        static_cast<uint8_t*>(ptr),
         size * nmemb,
         1,
         fwd->handle,
@@ -41,12 +43,12 @@ size_t UpdCheck::WriteFile(void* ptr, size_t size, size_t nmemb, void* userp) {
 
 bool UpdCheck::downloadUpdate(const std::string& url, const std::string& output_path) {
     if (!fsClient) {
-        fsClient = (FSClient*)MEMAllocFromDefaultHeap(sizeof(FSClient));
+        fsClient = (FSClient*)OSAllocFromSystem(sizeof(FSClient), 4);
         FSAddClient(fsClient, FS_ERROR_FLAG_NONE);
     }
     
     if (!cmdBlock) {
-        cmdBlock = (FSCmdBlock*)MEMAllocFromDefaultHeap(sizeof(FSCmdBlock));
+        cmdBlock = (FSCmdBlock*)OSAllocFromSystem(sizeof(FSCmdBlock), 4);
         FSInitCmdBlock(cmdBlock);
     }
 
@@ -82,10 +84,3 @@ bool UpdCheck::downloadUpdate(const std::string& url, const std::string& output_
 
     return res == CURLE_OK;
 }
-if (res == CURLE_OK) {
-        // If men.rpx downloaded successfully, download version.txt
-        return downloadUpdate(update->tag + "/version.txt", 
-                            "/vol/external01/wiiu/environments/aroma/version.txt");
-    }
-    
-    return false;
