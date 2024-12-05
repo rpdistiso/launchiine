@@ -1,8 +1,9 @@
 #include "UpdCheck.h"
 #include <curl/curl.h>
 #include <jansson.h>
-#include <coreinit/filesystem.h>
 #include <coreinit/core.h>
+#include <coreinit/filesystem.h>
+#include <coreinit/memory.h>
 #include <whb/log.h>
 
 struct FileWriteData {
