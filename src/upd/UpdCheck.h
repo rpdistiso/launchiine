@@ -9,7 +9,7 @@ struct Version {
     std::string download_url;
 };
 
-class UpdateChecker {
+class UpdCheck {
 public:
     static std::optional<Version> checkForUpdates(const std::string& current_version);
     static bool downloadUpdate(const std::string& url, const std::string& output_path);
