@@ -46,7 +46,10 @@ It's possible to use a docker image for building. This way you don't need anythi
 # Build docker image (only needed once)
 docker build . -t launchiine-builder
 
-# make 
+# Generate data headers
+docker run -it --rm -v ${PWD}:/project launchiine-builder bash -c 'cd /project && for file in $(find data -type f); do /opt/devkitpro/tools/bin/bin2s -a 32 "$file" -H "build/$(basename "$file" | tr . _).h"; done'
+
+#make
 docker run -it --rm -v ${PWD}:/project launchiine-builder make -j2
 
 # make clean
