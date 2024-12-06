@@ -3,7 +3,7 @@
 A simple Wii U Menu replacement, currently in an alpha development stage and not ready for day to day usage
 
 ## Project Status
-As of October 15, 2024, all of the progress on my projects (Launchiine and [Corruption's Curse](https://gamebanana.com/mods/523990)) will be coming to a halt as my town is still repairing from Hurricane Helene and I need to prepare for EOCs 
+As of October 15, 2024, all progress on my projects (Launchiine and [Corruption's Curse](https://gamebanana.com/mods/523990)) will be coming to a halt as I need to prepare for **E**nd-**O**f-**C**ourse exams
 
 ## Usage (Replace Wii U Menu via Mocha Payload):
 [ENVIRONMENT] is a placeholder for the actual environment name
