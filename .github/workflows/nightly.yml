@@ -44,6 +44,7 @@ jobs:
         key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-buildx-
+      run: mkdir -p /tmp/.buildx-cache  # Ensure cache directory exists
 
     - name: Login to GitHub Container Registry
       if: steps.changes.outputs.changes == 'true'
