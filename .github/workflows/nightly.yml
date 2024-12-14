@@ -77,4 +77,5 @@ jobs:
         files: men.rpx, men.elf
 
     - name: No changes message
-      if: steps.changes.outputs
+      if: steps.changes.outputs.changes == 'false'
+      run: echo "No changes detected since the last nightly release."
