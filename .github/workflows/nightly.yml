@@ -49,6 +49,14 @@ jobs:
       if: steps.changes.outputs.changes == 'true'
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
 
+    - name: Debug Docker run
+      if: steps.changes.outputs.changes == 'true'
+      run: |
+        docker version
+        docker info
+        docker images
+        docker ps -a
+
     - name: Build Docker image
       if: steps.changes.outputs.changes == 'true'
       run: |
@@ -58,7 +66,7 @@ jobs:
     - name: Run custom command
       if: steps.changes.outputs.changes == 'true'
       run: |
-        docker run --rm -v $PWD:/project ghcr.io/${{ github.repository_owner }}/launchiine:nightly bash -c 'for file in $(find data -type f); do /opt/devkitpro/tools/bin/bin2s -a 32 "$file" -H "build/$(basename "$file" | tr . _).h"; done'
+        docker run --rm -v $PWD:/project ghcr.io/${{ github.repository_owner }}/launchiine:nightly bash -c 'for file in $(find data -type f); do /opt/devkitpro/tools/bin/bin2s -a 32 "$file" -H "build/$(basename "$file" | tr . _).h"; done' || docker logs $(docker ps -a -q --filter "ancestor=ghcr.io/${{ github.repository_owner }}/launchiine:nightly")
 
     - name: Extract build artifacts
       if: steps.changes.outputs.changes == 'true'
