@@ -53,17 +53,17 @@ jobs:
       if: steps.changes.outputs.changes == 'true'
       run: |
         docker buildx create --use
-        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache-new --tag launchiine:nightly --load .
+        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache-new --tag local-launchiine:nightly --load .
 
     - name: Run custom command
       if: steps.changes.outputs.changes == 'true'
       run: |
-        docker run --rm -v $PWD:/project launchiine:nightly bash -c 'for file in $(find data -type f); do /opt/devkitpro/tools/bin/bin2s -a 32 "$file" -H "build/$(basename "$file" | tr . _).h"; done'
+        docker run --rm -v $PWD:/project local-launchiine:nightly bash -c 'for file in $(find data -type f); do /opt/devkitpro/tools/bin/bin2s -a 32 "$file" -H "build/$(basename "$file" | tr . _).h"; done'
 
     - name: Extract build artifacts
       if: steps.changes.outputs.changes == 'true'
       run: |
-        docker run --rm -v $PWD:/workspace launchiine:nightly \
+        docker run --rm -v $PWD:/workspace local-launchiine:nightly \
           cp /project/men.rpx /workspace/men.rpx && \
           cp /project/men.elf /workspace/men.elf
 
