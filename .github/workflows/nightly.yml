@@ -23,9 +23,9 @@ jobs:
           const lastNightlyCommit = execSync('git log -1 --before="24 hours ago" --format="%H"').toString().trim();
           const recentChanges = execSync(`git diff --name-only HEAD ${lastNightlyCommit}`).toString().trim();
           if (!recentChanges) {
-            core.setOutput('changes', 'false');
+            fs.writeFileSync(process.env.GITHUB_OUTPUT, 'changes=false');
           } else {
-            core.setOutput('changes', 'true');
+            fs.writeFileSync(process.env.GITHUB_OUTPUT, 'changes=true');
           }
 
     - name: Continue only if there are changes
@@ -38,7 +38,7 @@ jobs:
 
     - name: Cache Docker layers
       if: steps.changes.outputs.changes == 'true'
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-${{ github.sha }}
