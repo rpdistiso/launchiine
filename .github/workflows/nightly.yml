@@ -3,9 +3,6 @@ name: Nightly Release
 on:
   schedule:
     - cron: '15 7 * * *'  # Runs every day at 07:15 UTC (02:15 EST)
-  push:
-    branches:
-      - main  # Change this to your specific branch if needed
 
 jobs:
   build:
