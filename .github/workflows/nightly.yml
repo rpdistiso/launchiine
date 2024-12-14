@@ -59,6 +59,10 @@ jobs:
         docker buildx create --use
         docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache-new --tag ghcr.io/${{ github.repository_owner }}/launchiine:nightly --push .
 
+    - name: Verify pushed image
+      if: steps.changes.outputs.changes == 'true'
+      run: docker pull ghcr.io/${{ github.repository_owner }}/launchiine:nightly
+
     - name: Run custom command
       if: steps.changes.outputs.changes == 'true'
       run: |
@@ -83,3 +87,4 @@ jobs:
     - name: No changes message
       if: steps.changes.outputs.changes == 'false'
       run: echo "No changes detected since the last nightly release."
+    
