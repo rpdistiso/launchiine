@@ -12,21 +12,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
-        fetch-depth: 0  # Fetch all history for the repository
+        fetch-depth: 0
 
     - name: Check for changes
       id: changes
-      uses: actions/github-script@v6
-      with:
-        script: |
-          const { execSync } = require('child_process');
-          const lastNightlyCommit = execSync('git log -1 --before="24 hours ago" --format="%H"').toString().trim();
-          const recentChanges = execSync(`git diff --name-only HEAD ${lastNightlyCommit}`).toString().trim();
-          if (!recentChanges) {
-            fs.writeFileSync(process.env.GITHUB_OUTPUT, 'changes=false');
-          } else {
-            fs.writeFileSync(process.env.GITHUB_OUTPUT, 'changes=true');
-          }
+      run: |
+        lastNightlyCommit=$(git log -1 --before="24 hours ago" --format="%H")
+        recentChanges=$(git diff --name-only HEAD ${lastNightlyCommit})
+        if [ -z "$recentChanges" ]; then
+          echo "changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "changes=true" >> $GITHUB_OUTPUT
+        fi
 
     - name: Continue only if there are changes
       if: steps.changes.outputs.changes == 'true'
@@ -54,11 +51,6 @@ jobs:
       run: |
         docker buildx create --use
         docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache-new --tag local-launchiine:nightly --load .
-
-    - name: Run custom command
-      if: steps.changes.outputs.changes == 'true'
-      run: |
-        docker run --rm -v $PWD:/project local-launchiine:nightly bash -c 'for file in $(find data -type f); do /opt/devkitpro/tools/bin/bin2s -a 32 "$file" -H "build/$(basename "$file" | tr . _).h"; done'
 
     - name: Extract build artifacts
       if: steps.changes.outputs.changes == 'true'
