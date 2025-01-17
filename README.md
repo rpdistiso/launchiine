@@ -1,6 +1,6 @@
 ## Launchiine (WIP)
 
-A simple Wii U Menu replacement, currently in an alpha development stage and not ready for day to day usage
+A simple Wii U Menu replacement, currently in a beta development stage but not ready for day to day usage
 
 ## Project Status
 As of January 17, 2025, I am working on Launchiine and [wums-exfat](https://github.com/rpdistiso/wums-exfat/)
