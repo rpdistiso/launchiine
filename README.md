@@ -34,7 +34,8 @@ Install the following dependencies:
 - [wut](https://github.com/devkitPro/wut)
 - [libgui](https://github.com/wiiu-env/libgui)
 - [bin2s](https://github.com/Xtansia/bin2s)
-- libargs-dev
+And the following packages:
+`libargs-dev gcc g++ cmake build-essentials git`
 
 Then build via `make`
 
