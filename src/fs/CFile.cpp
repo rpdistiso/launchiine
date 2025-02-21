@@ -144,7 +144,7 @@ int32_t CFile::seek(long int offset, int32_t origin) {
   if (iFd >= 0)
     ret = ::lseek(iFd, pos, SEEK_SET);
 
-  if (mem_file != nullptr) {
+  if (mem_file != NULL) {
     if (pos > filesize) {
       pos = filesize;
     }
