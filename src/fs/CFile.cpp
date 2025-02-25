@@ -16,9 +16,9 @@ CFile::CFile(const std::string & filepath, eOpenTypes mode) {
   this -> open(filepath, mode);
 }
 
-CFile::CFile(const uint8_t * mem, int32_t size) {
+CFile::CFile(std::span<const uint8_t> data) {
   iFd = -1;
-  this -> open(mem, size);
+  this -> open(data);
 }
 
 CFile::~CFile() {
@@ -61,11 +61,11 @@ int32_t CFile::open(const std::string & filepath, eOpenTypes mode) {
   return 0;
 }
 
-int32_t CFile::open(const uint8_t * mem, int32_t size) {
+int32_t CFile::open(std::span<const uint8_t> data) {
   this -> close();
 
-  mem_file = mem;
-  filesize = size;
+  mem_file = data.data();
+  filesize = data.size();
 
   return 0;
 }
