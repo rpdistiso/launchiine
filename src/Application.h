@@ -4,6 +4,8 @@
 #include "menu/MainWindow.h"
 #include "system/CThread.h"
 #include "gui/video/CVideo.h"
+#include <memory>
+#include <array>
 
 // forward declaration
 class FreeTypeGX;
