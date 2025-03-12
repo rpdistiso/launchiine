@@ -3,7 +3,7 @@
 A simple Wii U Menu replacement, currently in a beta development stage but not ready for day to day usage
 
 ## Project Status
-As of January 17, 2025, I am working on Launchiine and [wums-exfat](https://github.com/rpdistiso/wums-exfat/)
+As of January 17, 2025, I am working on Launchiine
 
 ## Usage (Replace Wii U Menu via Mocha Payload):
 [ENVIRONMENT] is a placeholder for the actual environment name
