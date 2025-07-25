@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
@@ -19,49 +19,47 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const fs = require('fs');
           const { execSync } = require('child_process');
           const lastNightlyCommit = execSync('git log -1 --before="24 hours ago" --format="%H"').toString().trim();
           const recentChanges = execSync(`git diff --name-only HEAD ${lastNightlyCommit}`).toString().trim();
-          
-          core.setOutput('changes', recentChanges ? 'true' : 'false');
+          return recentChanges ? 'true' : 'false';
 
     - name: Continue only if there are changes
-      if: steps.changes.outputs.changes == 'true'
+      if: steps.changes.outputs.result == 'true'
       run: echo "Changes detected, continuing with the build and release."
 
     - name: Set up Docker Buildx
-      if: steps.changes.outputs.changes == 'true'
-      uses: docker/setup-buildx-action@v1
+      if: steps.changes.outputs.result == 'true'
+      uses: docker/setup-buildx-action@v2
 
     - name: Ensure cache directory exists
-      if: steps.changes.outputs.changes == 'true'
+      if: steps.changes.outputs.result == 'true'
       run: mkdir -p /tmp/.buildx-cache
 
     - name: Cache Docker layers
-      if: steps.changes.outputs.changes == 'true'
+      if: steps.changes.outputs.result == 'true'
       uses: actions/cache@v3
       with:
         path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        key: ${{ runner.os }}-buildx-${{ github.ref }}
         restore-keys: |
           ${{ runner.os }}-buildx-
 
     - name: Build Docker image
-      if: steps.changes.outputs.changes == 'true'
+      if: steps.changes.outputs.result == 'true'
       run: |
         docker buildx create --use
         docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache --cache-to=type=local,dest=/tmp/.buildx-cache-new --tag local-launchiine:nightly --load .
 
     - name: Extract build artifacts
-      if: steps.changes.outputs.changes == 'true'
+      if: steps.changes.outputs.result == 'true'
       run: |
         docker run --rm -v $PWD:/workspace local-launchiine:nightly \
           cp /project/men.rpx /workspace/men.rpx && \
           cp /project/men.elf /workspace/men.elf
 
     - name: Create release
-      if: steps.changes.outputs.changes == 'true'
+      if: steps.changes.outputs.result == 'true'
       uses: eine/tip@master
       with:
         tag: nightly
@@ -70,5 +68,5 @@ jobs:
         files: men.rpx, men.elf
 
     - name: No changes message
-      if: steps.changes.outputs.changes == 'false'
+      if: steps.changes.outputs.result == 'false'
       run: echo "No changes detected since the last nightly release."
